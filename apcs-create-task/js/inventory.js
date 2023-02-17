@@ -1,6 +1,6 @@
 const inventory = [
     {
-        book: "Fantastic Mr.Fox",
+        title: "Fantastic Mr.Fox",
         author:"Roald Dahl",
         image:"https://th.bing.com/th/id/OIP.B4sZQ70KwhqWGoOOJE03DAHaJ-?pid=ImgDet&rs=1",
     },
