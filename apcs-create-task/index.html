@@ -12,12 +12,25 @@
 <body class="books">
   <div id="Display">
     <h1 class="title">What Book Would You Like to Read?</h1>
-    <div class="buttons">
-      <button class="btn" id="search">Search</button>
-      <button class="btn" id="go-back">Go Back</button>
-      <button class="btn" id="show-book">Show Book</button>
-    </div>
-    <div id="Display"></div>
+    <section class="form-parent">
+      <form id="form">
+        <div class="form-inputs">
+          <div class="form-input">
+            <label for="title">Book Name</label>
+            <input type="text" id="title" class="text-box" required>
+          </div>
+          <div class="form-input">
+            <label for="author">Author</label>
+            <input type="author" id="Author" class="text-box" required>
+          </div>
+
+          <div class="buttons">
+            <button class="btn" id="search">Search</button>
+            <button class="btn" id="go-back">Go Back</button>
+            <button class="btn" id="show-book">Show Book</button>
+          </div>
+          <div id="Display"></div>
+    </section>
     <script type="module" src="/main.js"></script>
 </body>
 

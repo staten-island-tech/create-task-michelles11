@@ -1,23 +1,45 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './dom.js'
+import { inventory } from "./inventory";
+import { DOMSelectors } from "./dom";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+DOMSelectors.search.addEventListener("Search", function (s) {
+  s.preventDefault();
+  //filter
+  let Book = {};
+  Book.title = DOMSelectors.text.value;
+  Book.Author = DOMSelectors.author.value;
+  Book.image = DOMSelectors.img.value;
+  
+  console.log(Book);
+  createCard(Book);
+  deleteCard();
+  clearField();
+});
 
-setupCounter(document.querySelector('#counter'))
+function clearField(){
+  DOMSelectors.text.value = "";
+  DOMSelectors.author.value = "";
+  DOMSelectors.img.value = "";
+}
+ document.getElementById("text");
+function createCard(Book){
+  DOMSelectors.search.insertAdjacentHTML(
+    "afterend"
+    `<div class="book-card">
+    <H2> ${Book.title}</H2>
+    <img class = "image" src =${Album.image} alt="">
+    <h3>${Book.Author}</h3>
+    <button class= "button2">remove</button>
+    </div>`
+  );
+}
+
+
+
+
+
+
+
+
+
+inventory();
+DOMSelectors();

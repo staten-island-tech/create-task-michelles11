@@ -100,3 +100,4 @@ const inventory = [
         image:"https://www.oberlo.com/media/1603897574-image33-1.jpg?fm=webp&w=1824&fit=max",
     },
 ]
+export { inventory };

@@ -1,6 +1,12 @@
+import { inventory } from "./inventory";
 const DOMSelectors = {
-  author: document.getElementById("author"),
+  author: document.getElementById("Author"),
   book: document.getElementById("book-card"),
   img: document.getElementById("image"),
-  search: document.querySelectorAll("Display")
+  remove: document.querySelector("remove"),
+  text: document.querySelector("title"),
+  search: document.querySelector("Display"),
 };
+
+
+export { DOMSelectors };
