@@ -30,7 +30,7 @@ function createCard(Book){
     <h3>${Book.Author}</h3>
     <button class= "button2">remove</button>
     </div>`
-  );
+  );  
 }
 
 
