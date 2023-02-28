@@ -1,13 +1,17 @@
 import { inventory } from "./inventory";
 import { DOMSelectors } from "./dom";
-
+console.log(inventory);
 DOMSelectors.search.addEventListener("Search", function (s) {
-  s.preventDefault();
-  //filter
-  let Book = {};
-  Book.title = DOMSelectors.text.value;
-  Book.Author = DOMSelectors.author.value;
-  Book.image = DOMSelectors.img.value;
+  DOMSelectors.Display.innerHTML="";
+  inventory
+  .filter((Book)=> Book.author.includes("M"))
+  .forEach((school)=>
+  DOMSelectors.Display.insertAdjacentHTML(
+    "afterend",
+    `<div class="card">
+    <h2>${Book.author}</h2>
+    </div>`
+  ))
   
   console.log(Book);
   createCard(Book);
@@ -30,7 +34,7 @@ function createCard(Book){
     <h3>${Book.Author}</h3>
     <button class= "button2">remove</button>
     </div>`
-  );  
+  );                                                         
 }
 
 
