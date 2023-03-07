@@ -1,44 +1,65 @@
 import { inventory } from "./inventory";
 import { DOMSelectors } from "./dom";
 console.log(DOMSelectors);
+var searchHistory = [];
 DOMSelectors.search.addEventListener("click", function () {
-  //DOMSelectors.Display.innerHTML = "";
-  console.log("clicked");
-  /* inventory
-    .filter((Book) => Book.book.includes(DOMSelectors.title.value))
-    .forEach((Book) =>
-      DOMSelectors.search.insertAdjacentHTML(
-        "afterend",
-        `<div class="card">
-    <h2>${Book.book}</h2>
-    </div>`
-      )
-    ); */
+  searchHistory.push(DOMSelectors.title.value);
+  clearCards();
+  clearHistoryItems();
+  inventory
+    .filter((Book) => Book.title.includes(DOMSelectors.title.value))
+    .forEach((item) =>
+    //   DOMSelectors.search.insertAdjacentHTML(
+    //     "afterend",
+    //     `<div class="card">
+    // <h2>${Book.title}</h2>
+    // </div>`
+    //   )
+    createCard(item)
+    );
   console.log(`Title value is ${DOMSelectors.title.value}`);
-  const filtered = inventory.filter((Book) =>
-    Book.book.includes(DOMSelectors.title.value)
-  );
-  console.log(filtered);
-
-  //console.log(Book);
-  //createCard(Book);
-  //deleteCard();
-  //clearField();
 });
 
-function clearField() {
-  DOMSelectors.title.value = "";
-  DOMSelectors.author.value = "";
-  DOMSelectors.img.value = "";
-}
-//document.getElementById("text");
+DOMSelectors.showSearches.addEventListener("click", function () {
+  clearCards();
+  clearHistoryItems();
+  searchHistory.forEach(item => {
+    createSearchHistoryItem(item);
+  })
+});
+
 function createCard(book) {
-  DOMSelectors.search.insertAdjacentHTML(
-    "afterend"`<div class="book-card">
+  DOMSelectors.display.insertAdjacentHTML(
+    "afterend",`<div class="book-card">
     <H2> ${book.title}</H2>
     <img class = "image" src =${book.image} alt="">
-    <h3>${book.Author}</h3>
-    <button class= "button2">remove</button>
+    <h3>${book.author}</h3>
     </div>`
   );
+}
+
+function clearCards() {
+  if(DOMSelectors.book) {
+    var books = DOMSelectors.book;
+    while(books[0]) {
+      books[0].parentNode.removeChild(books[0]);
+    }
+  }
+}
+
+function createSearchHistoryItem(item) {
+  DOMSelectors.display.insertAdjacentHTML(
+    "afterend",`<div class="search-history-item">
+    <h3>${item}</h3>
+    </div>`
+  );
+}
+
+function clearHistoryItems() {
+  if(DOMSelectors.book) {
+    var searches = DOMSelectors.searchItems;
+    while(searches[0]) {
+      searches[0].parentNode.removeChild(searches[0]);
+    }
+  }
 }
