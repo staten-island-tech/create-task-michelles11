@@ -7,15 +7,17 @@ DOMSelectors.search.addEventListener("click", function () {
   clearCards();
   clearHistoryItems();
   inventory
-    .filter((Book) => Book.title.includes(DOMSelectors.title.value))
+    .filter((Book) =>
+      Book.title.toLowerCase().includes(DOMSelectors.title.value.toLowerCase())
+    )
     .forEach((item) =>
-    //   DOMSelectors.search.insertAdjacentHTML(
-    //     "afterend",
-    //     `<div class="card">
-    // <h2>${Book.title}</h2>
-    // </div>`
-    //   )
-    createCard(item)
+      //   DOMSelectors.search.insertAdjacentHTML(
+      //     "afterend",
+      //     `<div class="card">
+      // <h2>${Book.title}</h2>
+      // </div>`
+      //   )
+      createCard(item)
     );
   console.log(`Title value is ${DOMSelectors.title.value}`);
 });
@@ -23,14 +25,20 @@ DOMSelectors.search.addEventListener("click", function () {
 DOMSelectors.showSearches.addEventListener("click", function () {
   clearCards();
   clearHistoryItems();
-  searchHistory.forEach(item => {
+  searchHistory.forEach((item) => {
     createSearchHistoryItem(item);
-  })
+  });
+});
+
+DOMSelectors.goBack.addEventListener("click", function () {
+  clearCards();
+  clearHistoryItems();
 });
 
 function createCard(book) {
   DOMSelectors.display.insertAdjacentHTML(
-    "afterend",`<div class="book-card">
+    "afterend",
+    `<div class="book-card">
     <H2> ${book.title}</H2>
     <img class = "image" src =${book.image} alt="">
     <h3>${book.author}</h3>
@@ -39,9 +47,9 @@ function createCard(book) {
 }
 
 function clearCards() {
-  if(DOMSelectors.book) {
+  if (DOMSelectors.book) {
     var books = DOMSelectors.book;
-    while(books[0]) {
+    while (books[0]) {
       books[0].parentNode.removeChild(books[0]);
     }
   }
@@ -49,16 +57,17 @@ function clearCards() {
 
 function createSearchHistoryItem(item) {
   DOMSelectors.display.insertAdjacentHTML(
-    "afterend",`<div class="search-history-item">
+    "afterend",
+    `<div class="search-history-item">
     <h3>${item}</h3>
     </div>`
   );
 }
 
 function clearHistoryItems() {
-  if(DOMSelectors.book) {
+  if (DOMSelectors.book) {
     var searches = DOMSelectors.searchItems;
-    while(searches[0]) {
+    while (searches[0]) {
       searches[0].parentNode.removeChild(searches[0]);
     }
   }

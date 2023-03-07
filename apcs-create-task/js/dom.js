@@ -8,6 +8,7 @@ const DOMSelectors = {
   display: document.getElementById("display"),
   showSearches: document.getElementById("show-searches"),
   searchItems: document.getElementsByClassName("search-history-item"),
+  goBack: document.getElementById("go-back"),
 };
 
 export { DOMSelectors };
