@@ -36,7 +36,8 @@ DOMSelectors.showSearches.addEventListener("click", function () {
 });
 
 DOMSelectors.goBack.addEventListener("click", function () {
-  clearScreen();
+  clearScreen("books");
+  clearScreen("searches");
 });
 
 //second call description : to clear the screen so user can refresh the page and put in new input rather than typing in again, result : screen is cleared and cards are cleared and user can type in new search again
