@@ -1,5 +1,6 @@
 import { inventory } from "./inventory";
 import { DOMSelectors } from "./dom";
+import "../styles/style.css";
 
 var searchHistory = [];
 
@@ -66,7 +67,7 @@ function clearScreen(item = "all") {
 function createScreenItem(item, type) {
   if (type === "book-card") {
     DOMSelectors.display.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `<div class="book-card">
       <H2> ${item.title}</H2>
       <img class = "image" src =${item.image} alt="">
