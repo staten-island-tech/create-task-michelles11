@@ -1,5 +1,5 @@
 const inventory = [
-  //list
+  //list£
   {
     title: "Fantastic Mr.Fox",
     author: "Roald Dahl",
