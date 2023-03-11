@@ -1,6 +1,6 @@
 const DOMSelectors = {
   author: document.getElementById("Author"),
-  book: document.getElementsByClassName("book-card"),
+  books: document.getElementsByClassName("book-card"),
   img: document.getElementById("image"),
   remove: document.querySelector(".remove"),
   title: document.getElementById("title"),
